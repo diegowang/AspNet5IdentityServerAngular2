@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using IdentityServer4.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -12,11 +15,13 @@ using Microsoft.Extensions.Logging;
 using IdentityServerWithAspNetIdentity.Data;
 using IdentityServerWithAspNetIdentity.Models;
 using IdentityServerWithAspNetIdentity.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace IdentityServerWithAspNetIdentity
 {
     public class Startup
     {
+        private readonly IHostingEnvironment _environment;
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -33,6 +38,8 @@ namespace IdentityServerWithAspNetIdentity
                 builder.AddApplicationInsightsSettings(developerMode: true);
             }
 
+            _environment = env;
+
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
         }
@@ -42,6 +49,8 @@ namespace IdentityServerWithAspNetIdentity
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //var cert = new X509Certificate2(Path.Combine(_environment.ContentRootPath, "damienbodserver.pfx"), "");
+
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
@@ -52,19 +61,46 @@ namespace IdentityServerWithAspNetIdentity
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+            var guestPolicy = new AuthorizationPolicyBuilder()
+           .RequireAuthenticatedUser()
+           .RequireClaim("scope", "dataEventRecords")
+           .Build();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("dataEventRecordsAdmin", policyAdmin =>
+                {
+                    policyAdmin.RequireClaim("role", "dataEventRecords.admin");
+                });
+                options.AddPolicy("admin", policyAdmin =>
+                {
+                    policyAdmin.RequireClaim("role", "admin");
+                });
+                options.AddPolicy("dataEventRecordsUser", policyUser =>
+                {
+                    policyUser.RequireClaim("role", "dataEventRecords.user");
+                });
+
+            });
+
             services.AddMvc();
+
+            //The IdentityWithAdditionalClaimsProfileService class implements the IProfileService interface in this example and is added to the services in the Startup class.
+            services.AddTransient<IProfileService, IdentityWithAdditionalClaimsProfileService>();
 
             // Add application services.
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
 
             services.AddIdentityServer()
+                //.AddSigningCredential(cert)
                 .AddTemporarySigningCredential()
                 .AddInMemoryPersistedGrants()
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients())
-                .AddAspNetIdentity<ApplicationUser>();
+                .AddAspNetIdentity<ApplicationUser>()
+                .AddProfileService<IdentityWithAdditionalClaimsProfileService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -88,7 +124,20 @@ namespace IdentityServerWithAspNetIdentity
 
             app.UseApplicationInsightsExceptionTelemetry();
 
+            app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
+                // Does not work with HTTPS
+                //app.UseBrowserLink();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
 
             app.UseIdentity();
             app.UseIdentityServer();
