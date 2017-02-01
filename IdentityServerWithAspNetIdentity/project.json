@@ -41,7 +41,9 @@
     "Microsoft.Extensions.Logging.Debug": "1.1.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.1.0",
     "Microsoft.NETCore.App": "1.1.0",
-    "Microsoft.DotNet.InternalAbstractions": "1.0.500-preview2-1-003177"
+    "Microsoft.DotNet.InternalAbstractions": "1.0.500-preview2-1-003177",
+    "Microsoft.AspNetCore.Authentication.JwtBearer": "1.1.0",
+    "IdentityServer4.AccessTokenValidation": "1.0.5"
   },
 
   "tools": {
