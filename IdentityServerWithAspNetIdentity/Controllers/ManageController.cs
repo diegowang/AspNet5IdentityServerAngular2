@@ -13,6 +13,7 @@ using IdentityServerWithAspNetIdentity.Services;
 namespace IdentityServerWithAspNetIdentity.Controllers
 {
     [Authorize]
+    [SecurityHeaders]
     public class ManageController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
