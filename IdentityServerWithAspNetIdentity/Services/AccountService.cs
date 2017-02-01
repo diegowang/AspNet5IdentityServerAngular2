@@ -102,7 +102,7 @@ namespace IdentityServerWithAspNetIdentity.Services
         {
             var vm = await BuildLoginViewModelAsync(model.ReturnUrl);
             vm.Email = model.Email;
-            vm.AllowRememberLogin = model.RememberLogin;
+            vm.RememberLogin = model.RememberLogin;
             return vm;
         }
 
