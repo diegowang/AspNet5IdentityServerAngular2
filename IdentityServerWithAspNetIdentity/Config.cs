@@ -68,8 +68,8 @@ namespace IdentityServerWithAspNetIdentity
                         new Secret("secret".Sha256())
                     },
 
-                    RedirectUris = { "http://localhost:5002/signin-oidc" },
-                    PostLogoutRedirectUris = { "http://localhost:5002" },
+                    RedirectUris = { "http://localhost:29970/signin-oidc" },
+                    PostLogoutRedirectUris = { "http://localhost:29970" },
 
                     AllowedScopes =
                     {
