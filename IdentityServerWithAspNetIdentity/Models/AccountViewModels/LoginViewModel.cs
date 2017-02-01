@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace IdentityServerWithAspNetIdentity.Models.AccountViewModels
 {
-    public class LoginViewModel
+    public class LoginViewModel : LoginInputModel
     {
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
+        public bool AllowRememberLogin { get; set; }
+        public bool EnableLocalLogin { get; set; }
+        public IEnumerable<ExternalProvider> ExternalProviders { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+        public bool IsExternalLoginOnly => EnableLocalLogin == false && ExternalProviders?.Count() == 1;
 
-        [Display(Name = "Remember me?")]
-        public bool RememberMe { get; set; }
     }
 }
