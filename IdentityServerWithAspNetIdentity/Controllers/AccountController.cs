@@ -2,22 +2,21 @@
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using IdentityModel;
-using IdentityServer4;
-using IdentityServer4.Extensions;
-using IdentityServer4.Models;
-using IdentityServer4.Services;
-using IdentityServer4.Stores;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using IdentityServerWithAspNetIdentity.Models;
 using IdentityServerWithAspNetIdentity.Models.AccountViewModels;
+using IdentityServer4.Services;
+using IdentityServer4.Stores;
+using IdentityServer4.Models;
+using IdentityServerWithAspNetIdentity.Models;
 using IdentityServerWithAspNetIdentity.Services;
-using Microsoft.AspNetCore.Http;
+using IdentityModel;
+using IdentityServer4;
 using Microsoft.AspNetCore.Http.Authentication;
+using IdentityServer4.Extensions;
 
 namespace IdentityServerWithAspNetIdentity.Controllers
 {
@@ -84,7 +83,6 @@ namespace IdentityServerWithAspNetIdentity.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginInputModel model)
         {
-
             var returnUrl = model.ReturnUrl;
 
             ViewData["ReturnUrl"] = returnUrl;
@@ -117,7 +115,6 @@ namespace IdentityServerWithAspNetIdentity.Controllers
             // If we got this far, something failed, redisplay form
             return View(await BuildLoginViewModelAsync(model));
         }
-
 
         async Task<LoginViewModel> BuildLoginViewModelAsync(string returnUrl, AuthorizationRequest context)
         {
@@ -162,7 +159,6 @@ namespace IdentityServerWithAspNetIdentity.Controllers
             return vm;
         }
 
-
         /// <summary>
         /// Show logout page
         /// </summary>
@@ -192,7 +188,6 @@ namespace IdentityServerWithAspNetIdentity.Controllers
 
             return View(vm);
         }
-
 
         /// <summary>
         /// Handle logout page postback
@@ -248,8 +243,6 @@ namespace IdentityServerWithAspNetIdentity.Controllers
             //return View("LoggedOut", vm);
         }
 
-
-
         //
         // GET: /Account/Register
         [HttpGet]
@@ -270,7 +263,24 @@ namespace IdentityServerWithAspNetIdentity.Controllers
             ViewData["ReturnUrl"] = returnUrl;
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var dataEventsRole = "dataEventRecords.user";
+                var securedFilesRole = "securedFiles.user";
+                if (model.IsAdmin)
+                {
+                    dataEventsRole = "dataEventRecords.admin";
+                    securedFilesRole = "securedFiles.admin";
+                }
+
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    IsAdmin = model.IsAdmin,
+                    DataEventRecordsRole = dataEventsRole,
+                    SecuredFilesRole = securedFilesRole,
+                    AccountExpires = DateTime.UtcNow.AddDays(7.0)
+                };
+
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -290,17 +300,6 @@ namespace IdentityServerWithAspNetIdentity.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
-        //
-        // POST: /Account/LogOff
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> LogOff()
-        //{
-        //    await _signInManager.SignOutAsync();
-        //    _logger.LogInformation(4, "User logged out.");
-        //    return RedirectToAction(nameof(HomeController.Index), "Home");
-        //}
 
         //
         // POST: /Account/ExternalLogin
