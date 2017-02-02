@@ -18,6 +18,7 @@ using IdentityServerWithAspNetIdentity.Data;
 using IdentityServerWithAspNetIdentity.Models;
 using IdentityServerWithAspNetIdentity.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 
 namespace IdentityServerWithAspNetIdentity
 {
@@ -112,19 +113,33 @@ namespace IdentityServerWithAspNetIdentity
             loggerFactory.AddDebug();
 
             app.UseApplicationInsightsRequestTelemetry();
-
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
-                app.UseBrowserLink();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+            
 
             app.UseApplicationInsightsExceptionTelemetry();
+
+            var angularRoutes = new[] {
+                "/Unauthorized",
+                "/Forbidden",
+                "/uihome",
+                "/dataeventrecords/",
+                "/dataeventrecords/create",
+                "/dataeventrecords/edit/",
+                "/dataeventrecords/list",
+                "/usermanagement",
+                };
+
+
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path.HasValue && null != angularRoutes.FirstOrDefault(
+                    (ar) => context.Request.Path.Value.StartsWith(ar, StringComparison.OrdinalIgnoreCase)))
+                {
+                    context.Request.Path = new PathString("/");
+                }
+
+                await next();
+            });
+
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
