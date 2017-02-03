@@ -8,7 +8,7 @@ using IdentityServerWithAspNetIdentity.Models.HomeViewModels;
 
 namespace IdentityServerWithAspNetIdentity.Controllers
 {
-    [SecurityHeaders]
+    //[SecurityHeaders]
     public class HomeController : Controller
     {
         private readonly IIdentityServerInteractionService _interaction;
