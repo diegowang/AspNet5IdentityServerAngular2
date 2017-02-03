@@ -37086,7 +37086,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var Configuration = (function () {
     function Configuration() {
-        this.Server = 'https://localhost:44342/';
+        this.Server = 'https://localhost:44342';
     }
     Configuration = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* Injectable */])(), 
@@ -37155,7 +37155,7 @@ var DataEventRecordsService = (function () {
                 headers: _this.headers
             });
         };
-        this.actionUrl = _configuration.Server + "/api/DataEventRecords/";
+        this.actionUrl = _configuration.Server + "/api/DataEventRecord/";
     }
     DataEventRecordsService.prototype.setHeaders = function () {
         console.log('setHeaders started');

@@ -2,5 +2,5 @@
 
 @Injectable()
 export class Configuration {
-    public Server: string = 'https://localhost:44342/';
+    public Server: string = 'https://localhost:44342';
 }

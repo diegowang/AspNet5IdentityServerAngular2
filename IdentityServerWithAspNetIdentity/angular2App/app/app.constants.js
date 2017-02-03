@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 import { Injectable } from '@angular/core';
 export var Configuration = (function () {
     function Configuration() {
-        this.Server = 'https://localhost:44342/';
+        this.Server = 'https://localhost:44342';
     }
     Configuration = __decorate([
         Injectable(), 

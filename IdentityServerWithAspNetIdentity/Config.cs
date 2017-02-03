@@ -6,7 +6,7 @@ namespace IdentityServerWithAspNetIdentity
 {
     public class Config
     {
-        public static string HOST_URL = "https://localhost:44342/";
+        public static string HOST_URL = "https://localhost:44342";
 
         public static IEnumerable<IdentityResource> GetIdentityResources()
         {
