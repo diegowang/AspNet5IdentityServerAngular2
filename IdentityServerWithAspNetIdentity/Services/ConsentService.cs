@@ -126,7 +126,7 @@ namespace IdentityServerWithAspNetIdentity.Services
             AuthorizationRequest request,
             Client client, Resources resources)
         {
-            var vm = new ConsentViewModel();
+            var vm = new ConsentViewModel(model, returnUrl, request, client, resources);
 
             vm.RememberConsent = model?.RememberConsent ?? true;
             vm.ScopesConsented = model?.ScopesConsented ?? Enumerable.Empty<string>();
@@ -140,19 +140,19 @@ namespace IdentityServerWithAspNetIdentity.Services
 
             vm.IdentityScopes = resources.IdentityResources.Select(x => CreateScopeViewModel(x, vm.ScopesConsented.Contains(x.Name) || model == null)).ToArray();
             vm.ResourceScopes = resources.ApiResources.SelectMany(x => x.Scopes).Select(x => CreateScopeViewModel(x, vm.ScopesConsented.Contains(x.Name) || model == null)).ToArray();
-            if (ConsentOptions.EnableOfflineAccess && resources.OfflineAccess)
-            {
-                vm.ResourceScopes = vm.ResourceScopes.Union(new ScopeViewModel[] {
-                    GetOfflineAccessScope(vm.ScopesConsented.Contains(IdentityServerConstants.StandardScopes.OfflineAccess) || model == null)
-                });
-            }
+            //if (ConsentOptions.EnableOfflineAccess && resources.OfflineAccess)
+            //{
+            //    vm.ResourceScopes = vm.ResourceScopes.Union(new ScopeViewModel[] {
+            //        GetOfflineAccessScope(vm.ScopesConsented.Contains(IdentityServerConstants.StandardScopes.OfflineAccess) || model == null)
+            //    });
+            //}
 
             return vm;
         }
 
         public ScopeViewModel CreateScopeViewModel(IdentityResource identity, bool check)
         {
-            return new ScopeViewModel
+            return new ScopeViewModel(identity,check)
             {
                 Name = identity.Name,
                 DisplayName = identity.DisplayName,
@@ -165,7 +165,7 @@ namespace IdentityServerWithAspNetIdentity.Services
 
         public ScopeViewModel CreateScopeViewModel(Scope scope, bool check)
         {
-            return new ScopeViewModel
+            return new ScopeViewModel(scope,check)
             {
                 Name = scope.Name,
                 DisplayName = scope.DisplayName,
@@ -176,16 +176,16 @@ namespace IdentityServerWithAspNetIdentity.Services
             };
         }
 
-        private ScopeViewModel GetOfflineAccessScope(bool check)
-        {
-            return new ScopeViewModel
-            {
-                Name = IdentityServerConstants.StandardScopes.OfflineAccess,
-                DisplayName = ConsentOptions.OfflineAccessDisplayName,
-                Description = ConsentOptions.OfflineAccessDescription,
-                Emphasize = true,
-                Checked = check
-            };
-        }
+        //private ScopeViewModel GetOfflineAccessScope(bool check)
+        //{
+        //    return new ScopeViewModel(check)
+        //    {
+        //        Name = IdentityServerConstants.StandardScopes.OfflineAccess,
+        //        DisplayName = ConsentOptions.OfflineAccessDisplayName,
+        //        Description = ConsentOptions.OfflineAccessDescription,
+        //        Emphasize = true,
+        //        Checked = check
+        //    };
+        //}
     }
 }
