@@ -19,7 +19,7 @@ export class SecurityService {
 
     constructor(private _http: Http, private _configuration: Configuration, private _router: Router) {
 
-        this.actionUrl = _configuration.Server + 'api/DataEventRecords/';
+        this.actionUrl = _configuration.Server + 'api/DataEventRecord/';
 
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
