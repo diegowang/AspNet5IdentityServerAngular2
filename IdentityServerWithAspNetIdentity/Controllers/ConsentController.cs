@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using IdentityServer4.Services;
 using IdentityServer4.Stores;
+using IdentityServerWithAspNetIdentity.Filters;
 using IdentityServerWithAspNetIdentity.Models.ConsentModels;
 using IdentityServerWithAspNetIdentity.Services;
 using Microsoft.AspNetCore.Mvc;
