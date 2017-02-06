@@ -24,7 +24,6 @@
 /// <reference path="../webpack.dev.js" />
 /// <reference path="../webpack.helpers.js" />
 /// <reference path="../webpack.prod.js" />
-/// <reference path="dist/app.bundle.js" />
 /// <reference path="dist/polyfills.bundle.js" />
 /// <reference path="js/signout-redirect..js" />
 /// <reference path="js/site.js" />

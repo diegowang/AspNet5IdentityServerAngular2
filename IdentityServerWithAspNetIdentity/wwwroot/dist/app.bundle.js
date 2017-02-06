@@ -8520,7 +8520,7 @@ var SecurityService = (function () {
                 body: ''
             }).map(function (res) { return res.json(); });
         };
-        this.actionUrl = _configuration.Server + 'api/DataEventRecords/';
+        this.actionUrl = _configuration.Server + 'api/DataEventRecord/';
         this.headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["d" /* Headers */]();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');
