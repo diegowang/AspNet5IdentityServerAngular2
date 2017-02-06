@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http.Authentication;
 
 namespace AspNet.Security.CAS
 {
-    interface ICasTicketValidator
+    public interface ICasTicketValidator
     {
         Task<AuthenticateResult> ValidateTicket(HttpContext context, HttpClient httpClient,
             AuthenticationProperties properties, string ticket, string service);
