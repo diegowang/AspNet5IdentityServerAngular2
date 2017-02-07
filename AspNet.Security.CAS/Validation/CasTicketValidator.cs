@@ -30,7 +30,7 @@ namespace AspNet.Security.CAS.Validation
             // unescape first to prevent double escape
             var escapedService = Uri.EscapeDataString(Uri.UnescapeDataString(service));
             var escapedTicket = Uri.EscapeDataString(ticket);
-            var validateUrl = $"{validateUri.AbsoluteUri}?service={escapedService}&ticket={ticket}";
+            var validateUrl = $"{validateUri.AbsoluteUri}?service={escapedService}&ticket={escapedTicket}";
             var response = await httpClient.GetAsync(validateUrl, cancellationToken).ConfigureAwait(false);
             response.EnsureSuccessStatusCode();
             var responseBody = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
