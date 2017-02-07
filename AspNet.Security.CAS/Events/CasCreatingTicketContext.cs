@@ -16,15 +16,14 @@ namespace AspNet.Security.CAS.Events
         /// <param name="options"></param>
         /// <param name="userName">Cas user ID</param>
 
-        public CasCreatingTicketContext(HttpContext context, CasOptions options, string userName) : base(context, options)
+        public CasCreatingTicketContext(HttpContext context, CasOptions options) : base(context, options)
         {
-            Username = userName;
         }
 
         /// <summary>
         /// Gets the Cas user ID
         /// </summary>
-        public string Username { get; private set; }
+        //public string Username { get; private set; }
 
         /// <summary>
         /// Gets the <see cref="ClaimsPrincipal"/> representing the user
