@@ -55,6 +55,8 @@ namespace AspNet.Security.CAS
         /// </summary>
         public string NameIdentifierAttribute { get; set; }
 
+        public bool UseTicketStore { get; set; }
+
         /// <summary>
         ///
         /// </summary>
