@@ -60,5 +60,14 @@ namespace AspNet.Security.CAS
         /// </summary>
         public ICasTicketValidator TicketValidator { get; set; }
 
+        /// <summary>
+        /// Gets or sets the <see cref="ICasEvents"/> used to handle authentication events.
+        /// </summary>
+        public new ICasEvents Events
+        {
+            get { return base.Events as ICasEvents; }
+            set { base.Events = value; }
+        }
+
     }
 }
