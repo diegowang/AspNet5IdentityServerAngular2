@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using AspNet.Security.CAS.Security;
 
 namespace AspNet.Security.CAS
 {
