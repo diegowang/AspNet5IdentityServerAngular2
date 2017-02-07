@@ -13,7 +13,9 @@
       "imports": "dnxcore50"
     }
   },
-
-  "authors": [ "Diego Wang University of Notre Dame" ],
-  "tags": ["CAS"]
+  
+  "packOptions": {
+    "owners": [ "Diego Wang University of Notre Dame" ],
+    "tags": [ "CAS" ]
+  } 
 }
