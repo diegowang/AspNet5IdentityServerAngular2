@@ -1,4 +1,4 @@
-﻿{
+{
   "userSecretsId": "aspnet-IdentityServerWithAspNetIdentity-d45084bc-c17d-4275-aca6-4568cf8019a1",
 
   "dependencies": {
@@ -43,7 +43,8 @@
     "Microsoft.NETCore.App": "1.1.0",
     "Microsoft.DotNet.InternalAbstractions": "1.0.500-preview2-1-003177",
     "Microsoft.AspNetCore.Authentication.JwtBearer": "1.1.0",
-    "IdentityServer4.AccessTokenValidation": "1.0.5"
+    "IdentityServer4.AccessTokenValidation": "1.0.5",
+    "AspNet.Security.CAS": "1.0.0-*"
   },
 
   "tools": {
