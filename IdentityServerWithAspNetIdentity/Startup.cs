@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
+using AspNet.Security.CAS;
 using IdentityServer4.AccessTokenValidation;
 using IdentityServer4.Services;
 using Microsoft.AspNetCore.Builder;
@@ -162,6 +163,12 @@ namespace IdentityServerWithAspNetIdentity
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
+            app.UseCasAuthentication(new CasOptions
+            {
+                CasServerUrlBase = "https://login-test.cc.nd.edu/cas",
+                Caption = "Notre Dame CAS Service",
+                AuthenticationScheme = "Notre Dame CAS Service"
+            });
 
             // Add external authentication middleware below. To configure them please see http://go.microsoft.com/fwlink/?LinkID=532715
             //app.UseGoogleAuthentication(new GoogleOptions
