@@ -97,7 +97,7 @@
 
   "scripts": {
     //"prepublish": [ "bower install", "dotnet bundle" ],
-    "prepublish": [ "npm install", "node node_modules/webpack/bin/webpack.js --config ./webpack.prod.js" ],
+    "prepublish": [ "npm install -g typescript@2.0", "node node_modules/webpack/bin/webpack.js --config ./webpack.prod.js" ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }
 }
