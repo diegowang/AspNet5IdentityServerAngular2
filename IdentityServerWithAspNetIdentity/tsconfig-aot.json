@@ -1,7 +1,7 @@
 ﻿{
   "compilerOptions": {
     "target": "es5",
-    "module": "es2015",
+    //"module": "es2015",
     "moduleResolution": "node",
     "sourceMap": false,
     "emitDecoratorMetadata": true,
@@ -9,10 +9,13 @@
     "removeComments": true,
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
-    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
     "lib": [
-      "es2015",
+      "es6",
       "dom"
+    ],
+    "types": [
+      "node"
     ]
   },
   "files": [
