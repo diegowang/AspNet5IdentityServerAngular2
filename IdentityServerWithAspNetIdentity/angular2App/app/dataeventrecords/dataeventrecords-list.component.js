@@ -43,3 +43,4 @@ export var DataEventRecordsListComponent = (function () {
     ], DataEventRecordsListComponent);
     return DataEventRecordsListComponent;
 }());
+//# sourceMappingURL=dataeventrecords-list.component.js.map

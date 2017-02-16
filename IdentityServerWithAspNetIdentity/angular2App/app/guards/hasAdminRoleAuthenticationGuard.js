@@ -25,3 +25,4 @@ export var HasAdminRoleAuthenticationGuard = (function () {
     ], HasAdminRoleAuthenticationGuard);
     return HasAdminRoleAuthenticationGuard;
 }());
+//# sourceMappingURL=hasAdminRoleAuthenticationGuard.js.map

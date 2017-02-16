@@ -23,3 +23,4 @@ export var ForbiddenComponent = (function () {
     ], ForbiddenComponent);
     return ForbiddenComponent;
 }());
+//# sourceMappingURL=forbidden.component.js.map

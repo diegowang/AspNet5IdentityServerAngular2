@@ -1,33 +1,34 @@
+"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-import * as import0 from '../../../../angular2App/app/dataeventrecords/dataeventrecords-create.component';
-import * as import1 from '@angular/core/src/linker/view';
-import * as import3 from '@angular/core/src/linker/view_utils';
-import * as import4 from '@angular/core/src/metadata/view';
-import * as import5 from '@angular/core/src/linker/view_type';
-import * as import6 from '@angular/core/src/change_detection/constants';
-import * as import7 from '@angular/core/src/linker/component_factory';
-import * as import8 from '../../../../angular2App/app/dataeventrecords/DataEventRecordsService';
-import * as import9 from '../../../../angular2App/app/services/SecurityService';
-import * as import10 from '@angular/router/src/router';
-import * as import11 from '../../../node_modules/@angular/forms/src/directives/default_value_accessor.ngfactory';
-import * as import12 from '../../../node_modules/@angular/forms/src/directives/ng_model.ngfactory';
-import * as import13 from '../../../node_modules/@angular/forms/src/directives/ng_control_status.ngfactory';
-import * as import14 from '@angular/core/src/linker/view_container';
-import * as import15 from '@angular/core/src/linker/element_ref';
-import * as import16 from '@angular/forms/src/directives/default_value_accessor';
-import * as import17 from '@angular/forms/src/directives/control_value_accessor';
-import * as import18 from '@angular/forms/src/directives/ng_model';
-import * as import19 from '@angular/forms/src/directives/ng_control';
-import * as import20 from '@angular/forms/src/directives/ng_control_status';
-import * as import21 from '../../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
-import * as import22 from '@angular/core/src/change_detection/change_detection_util';
-import * as import23 from '@angular/core/src/linker/template_ref';
-import * as import24 from '@angular/common/src/directives/ng_if';
-export var Wrapper_DataEventRecordsCreateComponent = (function () {
+var import0 = require('../../../../angular2App/app/dataeventrecords/dataeventrecords-create.component');
+var import1 = require('@angular/core/src/linker/view');
+var import3 = require('@angular/core/src/linker/view_utils');
+var import4 = require('@angular/core/src/metadata/view');
+var import5 = require('@angular/core/src/linker/view_type');
+var import6 = require('@angular/core/src/change_detection/constants');
+var import7 = require('@angular/core/src/linker/component_factory');
+var import8 = require('../../../../angular2App/app/dataeventrecords/DataEventRecordsService');
+var import9 = require('../../../../angular2App/app/services/SecurityService');
+var import10 = require('@angular/router/src/router');
+var import11 = require('../../../node_modules/@angular/forms/src/directives/default_value_accessor.ngfactory');
+var import12 = require('../../../node_modules/@angular/forms/src/directives/ng_model.ngfactory');
+var import13 = require('../../../node_modules/@angular/forms/src/directives/ng_control_status.ngfactory');
+var import14 = require('@angular/core/src/linker/view_container');
+var import15 = require('@angular/core/src/linker/element_ref');
+var import16 = require('@angular/forms/src/directives/default_value_accessor');
+var import17 = require('@angular/forms/src/directives/control_value_accessor');
+var import18 = require('@angular/forms/src/directives/ng_model');
+var import19 = require('@angular/forms/src/directives/ng_control');
+var import20 = require('@angular/forms/src/directives/ng_control_status');
+var import21 = require('../../../node_modules/@angular/common/src/directives/ng_if.ngfactory');
+var import22 = require('@angular/core/src/change_detection/change_detection_util');
+var import23 = require('@angular/core/src/linker/template_ref');
+var import24 = require('@angular/common/src/directives/ng_if');
+var Wrapper_DataEventRecordsCreateComponent = (function () {
     function Wrapper_DataEventRecordsCreateComponent(p0, p1, p2) {
         this._changed = false;
         this.context = new import0.DataEventRecordsCreateComponent(p0, p1, p2);
@@ -57,6 +58,7 @@ export var Wrapper_DataEventRecordsCreateComponent = (function () {
     };
     return Wrapper_DataEventRecordsCreateComponent;
 }());
+exports.Wrapper_DataEventRecordsCreateComponent = Wrapper_DataEventRecordsCreateComponent;
 var renderType_DataEventRecordsCreateComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_DataEventRecordsCreateComponent_Host0 = (function (_super) {
     __extends(View_DataEventRecordsCreateComponent_Host0, _super);
@@ -89,7 +91,7 @@ var View_DataEventRecordsCreateComponent_Host0 = (function (_super) {
     };
     return View_DataEventRecordsCreateComponent_Host0;
 }(import1.AppView));
-export var DataEventRecordsCreateComponentNgFactory = new import7.ComponentFactory('dataeventrecords-create', View_DataEventRecordsCreateComponent_Host0, import0.DataEventRecordsCreateComponent);
+exports.DataEventRecordsCreateComponentNgFactory = new import7.ComponentFactory('dataeventrecords-create', View_DataEventRecordsCreateComponent_Host0, import0.DataEventRecordsCreateComponent);
 var styles_DataEventRecordsCreateComponent = [];
 var View_DataEventRecordsCreateComponent2 = (function (_super) {
     __extends(View_DataEventRecordsCreateComponent2, _super);
@@ -403,7 +405,7 @@ var View_DataEventRecordsCreateComponent1 = (function (_super) {
     return View_DataEventRecordsCreateComponent1;
 }(import1.AppView));
 var renderType_DataEventRecordsCreateComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_DataEventRecordsCreateComponent, {});
-export var View_DataEventRecordsCreateComponent0 = (function (_super) {
+var View_DataEventRecordsCreateComponent0 = (function (_super) {
     __extends(View_DataEventRecordsCreateComponent0, _super);
     function View_DataEventRecordsCreateComponent0(viewUtils, parentView, parentIndex, parentElement) {
         _super.call(this, View_DataEventRecordsCreateComponent0, renderType_DataEventRecordsCreateComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
@@ -443,3 +445,4 @@ export var View_DataEventRecordsCreateComponent0 = (function (_super) {
     };
     return View_DataEventRecordsCreateComponent0;
 }(import1.AppView));
+exports.View_DataEventRecordsCreateComponent0 = View_DataEventRecordsCreateComponent0;

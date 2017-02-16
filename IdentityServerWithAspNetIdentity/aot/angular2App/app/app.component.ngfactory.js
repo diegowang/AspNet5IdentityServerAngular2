@@ -1,30 +1,31 @@
+"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-import * as import0 from '../../../angular2App/app/app.component';
-import * as import1 from '@angular/core/src/linker/view';
-import * as import3 from '@angular/core/src/linker/view_utils';
-import * as import4 from '@angular/core/src/metadata/view';
-import * as import5 from '@angular/core/src/linker/view_type';
-import * as import6 from '@angular/core/src/change_detection/constants';
-import * as import7 from '@angular/core/src/linker/component_factory';
-import * as import8 from '../../../angular2App/app/services/SecurityService';
-import * as import9 from '../../node_modules/@angular/router/src/directives/router_link.ngfactory';
-import * as import10 from '@angular/core/src/linker/view_container';
-import * as import11 from '@angular/router/src/router';
-import * as import12 from '@angular/router/src/router_state';
-import * as import13 from '@angular/common/src/location/location_strategy';
-import * as import14 from '@angular/router/src/directives/router_link';
-import * as import15 from '../../node_modules/@angular/common/src/directives/ng_if.ngfactory';
-import * as import16 from '../../node_modules/@angular/router/src/directives/router_outlet.ngfactory';
-import * as import17 from '@angular/core/src/linker/template_ref';
-import * as import18 from '@angular/router/src/router_outlet_map';
-import * as import19 from '@angular/core/src/linker/component_factory_resolver';
-import * as import20 from '@angular/common/src/directives/ng_if';
-import * as import21 from '@angular/router/src/directives/router_outlet';
-export var Wrapper_AppComponent = (function () {
+var import0 = require('../../../angular2App/app/app.component');
+var import1 = require('@angular/core/src/linker/view');
+var import3 = require('@angular/core/src/linker/view_utils');
+var import4 = require('@angular/core/src/metadata/view');
+var import5 = require('@angular/core/src/linker/view_type');
+var import6 = require('@angular/core/src/change_detection/constants');
+var import7 = require('@angular/core/src/linker/component_factory');
+var import8 = require('../../../angular2App/app/services/SecurityService');
+var import9 = require('../../node_modules/@angular/router/src/directives/router_link.ngfactory');
+var import10 = require('@angular/core/src/linker/view_container');
+var import11 = require('@angular/router/src/router');
+var import12 = require('@angular/router/src/router_state');
+var import13 = require('@angular/common/src/location/location_strategy');
+var import14 = require('@angular/router/src/directives/router_link');
+var import15 = require('../../node_modules/@angular/common/src/directives/ng_if.ngfactory');
+var import16 = require('../../node_modules/@angular/router/src/directives/router_outlet.ngfactory');
+var import17 = require('@angular/core/src/linker/template_ref');
+var import18 = require('@angular/router/src/router_outlet_map');
+var import19 = require('@angular/core/src/linker/component_factory_resolver');
+var import20 = require('@angular/common/src/directives/ng_if');
+var import21 = require('@angular/router/src/directives/router_outlet');
+var Wrapper_AppComponent = (function () {
     function Wrapper_AppComponent(p0) {
         this._changed = false;
         this.context = new import0.AppComponent(p0);
@@ -54,6 +55,7 @@ export var Wrapper_AppComponent = (function () {
     };
     return Wrapper_AppComponent;
 }());
+exports.Wrapper_AppComponent = Wrapper_AppComponent;
 var renderType_AppComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_AppComponent_Host0 = (function (_super) {
     __extends(View_AppComponent_Host0, _super);
@@ -86,7 +88,7 @@ var View_AppComponent_Host0 = (function (_super) {
     };
     return View_AppComponent_Host0;
 }(import1.AppView));
-export var AppComponentNgFactory = new import7.ComponentFactory('my-app', View_AppComponent_Host0, import0.AppComponent);
+exports.AppComponentNgFactory = new import7.ComponentFactory('my-app', View_AppComponent_Host0, import0.AppComponent);
 var styles_AppComponent = [];
 var View_AppComponent1 = (function (_super) {
     __extends(View_AppComponent1, _super);
@@ -282,7 +284,7 @@ var View_AppComponent5 = (function (_super) {
     return View_AppComponent5;
 }(import1.AppView));
 var renderType_AppComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_AppComponent, {});
-export var View_AppComponent0 = (function (_super) {
+var View_AppComponent0 = (function (_super) {
     __extends(View_AppComponent0, _super);
     function View_AppComponent0(viewUtils, parentView, parentIndex, parentElement) {
         _super.call(this, View_AppComponent0, renderType_AppComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
@@ -518,3 +520,4 @@ export var View_AppComponent0 = (function (_super) {
     };
     return View_AppComponent0;
 }(import1.AppView));
+exports.View_AppComponent0 = View_AppComponent0;

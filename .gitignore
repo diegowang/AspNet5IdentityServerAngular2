@@ -240,3 +240,7 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+#exclude typescripts generated js and js.map files
+angular2App/**/*.js
+angular2App/**/*.js.map

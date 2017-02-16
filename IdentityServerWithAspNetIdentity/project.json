@@ -88,7 +88,6 @@
     "include": [
       "wwwroot",
       "Views",
-      "node_modules",
       "Areas/**/Views",
       "appsettings.json",
       "web.config"
@@ -96,11 +95,7 @@
   },
 
   "scripts": {
-    //"prepublish": [ "bower install", "dotnet bundle" ],
-    "ngc": "ngc -p ./tsconfig-aot.json",
-    "webpack-production": "set NODE_ENV=production && webpack",
-    "build-production": "npm run ngc && npm run webpack-production",
-    "prepublish": [ "npm run build-production" ],
+    "prepublish": [ "bower install", "dotnet bundle" ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   }
 }

@@ -1,16 +1,17 @@
+"use strict";
 var __extends = (this && this.__extends) || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-import * as import0 from '../../../../angular2App/app/home/home.component';
-import * as import1 from '@angular/core/src/linker/view';
-import * as import3 from '@angular/core/src/linker/view_utils';
-import * as import4 from '@angular/core/src/metadata/view';
-import * as import5 from '@angular/core/src/linker/view_type';
-import * as import6 from '@angular/core/src/change_detection/constants';
-import * as import7 from '@angular/core/src/linker/component_factory';
-export var Wrapper_HomeComponent = (function () {
+var import0 = require('../../../../angular2App/app/home/home.component');
+var import1 = require('@angular/core/src/linker/view');
+var import3 = require('@angular/core/src/linker/view_utils');
+var import4 = require('@angular/core/src/metadata/view');
+var import5 = require('@angular/core/src/linker/view_type');
+var import6 = require('@angular/core/src/change_detection/constants');
+var import7 = require('@angular/core/src/linker/component_factory');
+var Wrapper_HomeComponent = (function () {
     function Wrapper_HomeComponent() {
         this._changed = false;
         this.context = new import0.HomeComponent();
@@ -40,6 +41,7 @@ export var Wrapper_HomeComponent = (function () {
     };
     return Wrapper_HomeComponent;
 }());
+exports.Wrapper_HomeComponent = Wrapper_HomeComponent;
 var renderType_HomeComponent_Host = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, [], {});
 var View_HomeComponent_Host0 = (function (_super) {
     __extends(View_HomeComponent_Host0, _super);
@@ -72,10 +74,10 @@ var View_HomeComponent_Host0 = (function (_super) {
     };
     return View_HomeComponent_Host0;
 }(import1.AppView));
-export var HomeComponentNgFactory = new import7.ComponentFactory('home', View_HomeComponent_Host0, import0.HomeComponent);
+exports.HomeComponentNgFactory = new import7.ComponentFactory('home', View_HomeComponent_Host0, import0.HomeComponent);
 var styles_HomeComponent = [];
 var renderType_HomeComponent = import3.createRenderComponentType('', 0, import4.ViewEncapsulation.None, styles_HomeComponent, {});
-export var View_HomeComponent0 = (function (_super) {
+var View_HomeComponent0 = (function (_super) {
     __extends(View_HomeComponent0, _super);
     function View_HomeComponent0(viewUtils, parentView, parentIndex, parentElement) {
         _super.call(this, View_HomeComponent0, renderType_HomeComponent, import5.ViewType.COMPONENT, viewUtils, parentView, parentIndex, parentElement, import6.ChangeDetectorStatus.CheckAlways);
@@ -92,3 +94,4 @@ export var View_HomeComponent0 = (function (_super) {
     };
     return View_HomeComponent0;
 }(import1.AppView));
+exports.View_HomeComponent0 = View_HomeComponent0;
