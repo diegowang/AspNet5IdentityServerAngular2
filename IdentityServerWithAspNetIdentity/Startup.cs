@@ -89,6 +89,12 @@ namespace IdentityServerWithAspNetIdentity
 
             services.AddMvc();
 
+            //Setting IISOptions for the IISIntegration service
+            services.Configure<IISOptions>(options =>
+            {
+                options.ForwardWindowsAuthentication = true;
+            });
+
             //The IdentityWithAdditionalClaimsProfileService class implements the IProfileService interface in this example and is added to the services in the Startup class.
             services.AddTransient<IProfileService, IdentityWithAdditionalClaimsProfileService>();
 
