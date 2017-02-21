@@ -88,6 +88,7 @@
     "include": [
       "wwwroot",
       "Views",
+      "node_modules",
       "Areas/**/Views",
       "appsettings.json",
       "web.config"
@@ -95,7 +96,9 @@
   },
 
   "scripts": {
-    "prepublish": ["npm install", "bower install", "dotnet bundle"],
+    "prepublish": [ "npm install", "bower install", "dotnet bundle" ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
-  }
+  },
+
+  "tooling": { "defaultNamespace": "BusinessPlanCompetition" }
 }
