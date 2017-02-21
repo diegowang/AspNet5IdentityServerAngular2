@@ -76,7 +76,9 @@
   "buildOptions": {
     "emitEntryPoint": true,
     "preserveCompilationContext": true,
-    "outputName": "BusinessPlanCompetition"
+    "compile": {
+      "exclude": ["node_modules"]
+    }
   },
 
   "runtimeOptions": {
