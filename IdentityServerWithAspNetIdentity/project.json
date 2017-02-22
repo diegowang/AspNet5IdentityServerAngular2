@@ -99,7 +99,14 @@
   },
 
   "scripts": {
-    "prepublish": [ "bower install", "dotnet bundle" ],
+    "prepublish": [
+      "npm install --save webpack",
+      "npm install",
+      "npm rebuild node-sass",
+      "npm run build-production",
+      "bower install",
+      "dotnet bundle"
+    ],
     "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
   },
 
