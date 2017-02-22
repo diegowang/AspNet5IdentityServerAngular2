@@ -88,7 +88,6 @@
     "include": [
       "wwwroot",
       "Views",
-      "node_modules",
       "Areas/**/Views",
       "appsettings.json",
       "web.config"
