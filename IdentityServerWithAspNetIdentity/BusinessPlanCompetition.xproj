@@ -12,7 +12,7 @@
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TypeScriptToolsVersion>2.0</TypeScriptToolsVersion>
-    <!--<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>-->
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
   </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
